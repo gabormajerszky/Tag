@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client", "Client\Client.vcxproj", "{E7AA5928-80F3-4D33-913A-FBAF17FF4578}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Server", "Server\Server.vcxproj", "{CB91D27A-A1F8-46B4-B59D-635A0D31BD49}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinServer", "WinServer\WinServer.vcxproj", "{D3D761BA-4E20-4BAE-9087-416D1AC42F2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{267F45EA-7A5C-4B1D-85C6-04C488B80BE5}"
+	ProjectSection(SolutionItems) = preProject
+		TODO.txt = TODO.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Cross-Platform = Debug|Cross-Platform
+		Release|Cross-Platform = Release|Cross-Platform
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7AA5928-80F3-4D33-913A-FBAF17FF4578}.Debug|Cross-Platform.ActiveCfg = Debug|Win32
+		{E7AA5928-80F3-4D33-913A-FBAF17FF4578}.Debug|Cross-Platform.Build.0 = Debug|Win32
+		{E7AA5928-80F3-4D33-913A-FBAF17FF4578}.Debug|Cross-Platform.Deploy.0 = Debug|Win32
+		{E7AA5928-80F3-4D33-913A-FBAF17FF4578}.Release|Cross-Platform.ActiveCfg = Release|Win32
+		{E7AA5928-80F3-4D33-913A-FBAF17FF4578}.Release|Cross-Platform.Build.0 = Release|Win32
+		{CB91D27A-A1F8-46B4-B59D-635A0D31BD49}.Debug|Cross-Platform.ActiveCfg = Debug|ARM
+		{CB91D27A-A1F8-46B4-B59D-635A0D31BD49}.Debug|Cross-Platform.Build.0 = Debug|ARM
+		{CB91D27A-A1F8-46B4-B59D-635A0D31BD49}.Release|Cross-Platform.ActiveCfg = Release|ARM
+		{CB91D27A-A1F8-46B4-B59D-635A0D31BD49}.Release|Cross-Platform.Build.0 = Release|ARM
+		{D3D761BA-4E20-4BAE-9087-416D1AC42F2E}.Debug|Cross-Platform.ActiveCfg = Debug|Win32
+		{D3D761BA-4E20-4BAE-9087-416D1AC42F2E}.Debug|Cross-Platform.Build.0 = Debug|Win32
+		{D3D761BA-4E20-4BAE-9087-416D1AC42F2E}.Release|Cross-Platform.ActiveCfg = Release|Win32
+		{D3D761BA-4E20-4BAE-9087-416D1AC42F2E}.Release|Cross-Platform.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

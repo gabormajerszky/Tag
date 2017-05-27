@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{9b165f99-5722-406c-90b8-583c536238ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{ed64200c-3f0b-4ec1-a393-985f2402aa27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol">
+      <UniqueIdentifier>{1aa5db89-c440-4583-b630-304b75b89e74}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Protocol\ClientPacket.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Protocol\Message.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Protocol\ServerPacket.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Protocol\Address.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="GameServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Protocol\InputValue.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="MatchState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IdleState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LobbyState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Protocol\Input.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Protocol\Address.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Protocol\ClientPacket.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Protocol\Message.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Protocol\Protocol.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Protocol\ServerPacket.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Protocol\VectorPacket.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Protocol\VectorPrint.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerSocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Protocol\InputValue.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MatchState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddressedPacket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IdleState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LobbyState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Protocol\Input.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
