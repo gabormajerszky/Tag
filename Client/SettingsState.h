@@ -2,14 +2,14 @@
 
 #include "ClientState.h"
 
-class MainMenu : public ClientState {
+class SettingsState : public ClientState {
 
 public:
 
-    MainMenu(const sf::VideoMode& vm,
-             const sf::Font& font,
-             const sf::Color& active_color,
-             const sf::Color& inactive_color);
+    SettingsState(const sf::VideoMode& vm,
+                  const sf::Font& font,
+                  const sf::Color& active_color,
+                  const sf::Color& inactive_color);
 
     virtual ClientState* HandlePackets(GameClient* game) override;
     virtual ClientState* HandleInput(GameClient* game) override;

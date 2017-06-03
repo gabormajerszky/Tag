@@ -6,4 +6,4 @@ ClientState* ConnectMenu::HandlePackets(GameClient* game) { return &game->connec
 
 ClientState* ConnectMenu::HandleInput(GameClient* game) { return &game->connect_menu; }
 
-void ConnectMenu::Render(sf::RenderWindow* window) {}
+void ConnectMenu::Render(GameClient* game) {}

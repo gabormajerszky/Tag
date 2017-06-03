@@ -1,0 +1,7 @@
+{
+    "name" : "unnamed",
+    "color" : 1,
+    "volume" : 10,
+    "hud position" : "top left",
+    "show fps" : "off"
+}

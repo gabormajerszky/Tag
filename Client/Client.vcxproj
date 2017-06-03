@@ -43,7 +43,7 @@
     <ClCompile Include="Match.cpp" />
     <ClCompile Include="Pause.cpp" />
     <ClCompile Include="Result.cpp" />
-    <ClCompile Include="Settings.cpp" />
+    <ClCompile Include="SettingsState.cpp" />
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -66,7 +66,8 @@
     <ClInclude Include="Match.h" />
     <ClInclude Include="Pause.h" />
     <ClInclude Include="Result.h" />
-    <ClInclude Include="Settings.h" />
+    <ClInclude Include="SettingsState.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="Test.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

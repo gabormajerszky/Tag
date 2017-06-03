@@ -1,20 +1,14 @@
 #pragma once
 
-#include "MainMenu.h"
-#include "ConnectMenu.h"
-#include "ConnectFailed.h"
-#include "Settings.h"
-#include "Lobby.h"
-#include "Match.h"
-#include "Result.h"
-#include "Pause.h"
+#include "ClientSocket.h"
+#include "State.h"
 
 class GameClient {
 
     friend class MainMenu;
     friend class ConnectMenu;
     friend class ConnectFailed;
-    friend class Settings;
+    friend class SettingsState;
     friend class Lobby;
     friend class Match;
     friend class Result;
@@ -23,18 +17,30 @@ class GameClient {
     MainMenu main_menu;
     ConnectMenu connect_menu;
     ConnectFailed connect_failed;
-    Settings settings;
+    SettingsState settings_state;
     Lobby lobby;
     Match match;
     Result result;
     Pause pause;
 
 public:
-    static const sf::Font& GetFont() { return font; }
-    GameClient() : state(&main_menu) { font.loadFromFile("res/captureit.ttf"); }
+
+    GameClient(const sf::VideoMode& vm,
+               const sf::Font& font,
+               const sf::Texture& menu_texture,
+               const sf::Color& active_color,
+               const sf::Color& inactive_color,
+               const Address& address);
+
     void Run();
 
 private:
-    static sf::Font font;
+
     ClientState* state;
+    sf::RenderWindow window;
+    sf::Sprite menu_background;
+    sf::Color active_color;
+    sf::Color inactive_color;
+    ClientSocket socket;
+
 };

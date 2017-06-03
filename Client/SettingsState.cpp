@@ -1,19 +1,20 @@
-#include "MainMenu.h"
+#include "SettingsState.h"
 #include "GameClient.h"
-#include <iostream>
 
+SettingsState::SettingsState(const sf::VideoMode& vm,
+                             const sf::Font& font,
+                             const sf::Color& active_color,
+                             const sf::Color& inactive_color) {
 
-MainMenu::MainMenu(const sf::VideoMode& vm,
-                   const sf::Font& font,
-                   const sf::Color& active_color,
-                   const sf::Color& inactive_color) {
+    unsigned int character_size = 60;
+    float line_spacing = 60.0f;
 
-    unsigned int character_size = 90;
-    float line_spacing = 90.0f;
-
-    buttons.push_back(sf::Text("CONNECT", font, character_size));
-    buttons.push_back(sf::Text("SETTINGS", font, character_size));
-    buttons.push_back(sf::Text("EXIT", font, character_size));
+    buttons.push_back(sf::Text("NAME", font, character_size));
+    buttons.push_back(sf::Text("COLOR", font, character_size));
+    buttons.push_back(sf::Text("VOLUME", font, character_size));
+    buttons.push_back(sf::Text("HUD POSITION", font, character_size));    
+    buttons.push_back(sf::Text("SHOW FPS", font, character_size));
+    buttons.push_back(sf::Text("BACK TO MAIN MENU", font, character_size));
 
     sf::Vector2f scale;
     scale.x = static_cast<float>(vm.width) / GameConst::NATIVE_WIDTH;
@@ -45,35 +46,35 @@ MainMenu::MainMenu(const sf::VideoMode& vm,
     }
 
     buttons[active_menu].setFillColor(active_color);
-
+    
 }
 
 
-ClientState* MainMenu::HandlePackets(GameClient* game) { return &game->main_menu; }
+ClientState* SettingsState::HandlePackets(GameClient* game) { return &game->settings_state; }
 
 
-ClientState* MainMenu::HandleInput(GameClient* game) {
+ClientState* SettingsState::HandleInput(GameClient* game) {
 
-    sf::Event menu_event;
-    while (game->window.pollEvent(menu_event)) {
+    sf::Event settings_event;
+    while (game->window.pollEvent(settings_event)) {
 
-        if (menu_event.type == sf::Event::KeyPressed) {
+        if (settings_event.type == sf::Event::KeyPressed) {
 
-            switch (menu_event.key.code) {
+            switch (settings_event.key.code) {
 
                 case sf::Keyboard::Return:
                     return HandleReturn(game);
 
                 case sf::Keyboard::Up:
                     HandleUp(game);
-                    return &game->main_menu;
+                    return &game->settings_state;
 
                 case sf::Keyboard::Down:
                     HandleDown(game);
-                    return &game->main_menu;
+                    return &game->settings_state;
 
                 default:
-                    return &game->main_menu;
+                    return &game->settings_state;
 
             }
 
@@ -81,12 +82,12 @@ ClientState* MainMenu::HandleInput(GameClient* game) {
 
     }
 
-    return &game->main_menu;
+    return &game->settings_state;
 
 }
 
 
-void MainMenu::Render(GameClient* game) {
+void SettingsState::Render(GameClient* game) {
 
     game->window.clear();
     game->window.draw(game->menu_background);
@@ -98,28 +99,21 @@ void MainMenu::Render(GameClient* game) {
 }
 
 
-ClientState* MainMenu::HandleReturn(GameClient* game) {
+ClientState* SettingsState::HandleReturn(GameClient* game) {
 
     std::string label = buttons[active_menu].getString();
 
-    if (label == "CONNECT") {
-        return &game->connect_menu;
-    }
-    else if (label == "SETTINGS") {
-        return &game->settings_state;
-    }
-    else if (label == "EXIT") {
-        game->window.close();
+    if (label == "BACK TO MAIN MENU") {
         return &game->main_menu;
     }
     else {
-        return &game->main_menu;
+        return &game->settings_state;
     }
 
 }
 
 
-void MainMenu::HandleUp(GameClient* game) {
+void SettingsState::HandleUp(GameClient* game) {
 
     buttons[active_menu].setFillColor(game->inactive_color);
     active_menu = (active_menu + buttons.size() - 1) % buttons.size();
@@ -128,7 +122,7 @@ void MainMenu::HandleUp(GameClient* game) {
 }
 
 
-void MainMenu::HandleDown(GameClient* game) {
+void SettingsState::HandleDown(GameClient* game) {
 
     buttons[active_menu].setFillColor(game->inactive_color);
     active_menu = (active_menu + 1) % buttons.size();

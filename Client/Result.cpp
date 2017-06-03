@@ -6,4 +6,4 @@ ClientState* Result::HandlePackets(GameClient* game) { return &game->result; }
 
 ClientState* Result::HandleInput(GameClient* game) { return &game->result; }
 
-void Result::Render(sf::RenderWindow* window) {}
+void Result::Render(GameClient* game) {}

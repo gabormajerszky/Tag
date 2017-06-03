@@ -8,9 +8,14 @@
 
 class ClientSocket {
 public:
+    ClientSocket();
+
     // The address of the server needs to be provided,
     // since that'll be the only address we can receive messages from
     ClientSocket(const Address& server_address);
+
+    // Set the address if the default constuctor was used
+    void SetAddress(const Address& server_address);
 
     // Send a ClientPacket to the server
     void Send(ClientPacket& client_packet);

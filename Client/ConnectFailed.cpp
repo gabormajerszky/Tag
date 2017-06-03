@@ -6,4 +6,4 @@ ClientState* ConnectFailed::HandlePackets(GameClient* game) { return &game->conn
 
 ClientState* ConnectFailed::HandleInput(GameClient* game) { return &game->connect_failed; }
 
-void ConnectFailed::Render(sf::RenderWindow* window) {}
+void ConnectFailed::Render(GameClient* game) {}

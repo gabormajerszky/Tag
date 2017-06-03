@@ -6,4 +6,4 @@ ClientState* Lobby::HandlePackets(GameClient* game) { return &game->lobby; }
 
 ClientState* Lobby::HandleInput(GameClient* game) { return &game->lobby; }
 
-void Lobby::Render(sf::RenderWindow* window) {}
+void Lobby::Render(GameClient* game) {}

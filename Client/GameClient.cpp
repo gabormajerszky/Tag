@@ -1,20 +1,71 @@
 #include "GameClient.h"
-#include "ClientSocket.h"
-#include <SFML\Graphics.hpp>
+#include <fstream>
+
+
+GameClient::GameClient(const sf::VideoMode& vm,
+                       const sf::Font& font,
+                       const sf::Texture& menu_texture,
+                       const sf::Color& active_color,
+                       const sf::Color& inactive_color,
+                       const Address& address)
+
+    : main_menu(vm, font, active_color, inactive_color),
+      settings_state(vm, font, active_color, inactive_color),
+
+      state(&main_menu),
+      menu_background(menu_texture),
+      active_color(active_color),
+      inactive_color(inactive_color),
+      socket(address) {
+
+    window.create(vm, "Tag", sf::Style::Fullscreen);
+    window.setKeyRepeatEnabled(false);
+    window.setMouseCursorVisible(false);
+
+}
 
 
 void GameClient::Run() {
 
     // Main loop of the game
 
-    // !!! THROWAWAY CODE !!!
+    sf::Clock timer;
+    sf::Time lag;
+    sf::Time update_period = sf::seconds(1.0f / GameConst::TICK_RATE);
 
-    bool local = true;
+    sf::Clock fps_timer;
+    int frames = 0;
 
-    std::string server_ip = "163.172.180.245";
+    while (window.isOpen()) {
 
-    Address address("192.168.0.23", 50000);
-    ClientSocket socket(address);
+        state = state->HandlePackets(this);
+
+        lag += timer.getElapsedTime();
+        timer.restart();
+
+        if (lag > update_period) {
+            lag -= update_period;
+            state = state->HandleInput(this);
+            ++frames;
+        }
+
+        state->Render(this);
+
+        // For debugging
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+            window.close();
+        }
+
+        // For debugging
+        if (fps_timer.getElapsedTime() > sf::seconds(1.0f)) {
+            std::cout << frames << std::endl;
+            frames = 0;
+            fps_timer.restart();
+        }
+
+    }
+
+    /*
 
     std::string name = "Gabor";
     sf::Int8 color_code = 0;
@@ -25,16 +76,8 @@ void GameClient::Run() {
     background_texture.loadFromFile("res/level background.png");
     sf::Sprite background(background_texture);
 
-    sf::Font font;
-    font.loadFromFile("res/captureit.ttf");
-    sf::Text play("PLAY", font, 60);
-    play.setPosition(960, 540);
-
     sf::Text fps;
     fps.setFont(font);
-
-    sf::RenderWindow window(sf::VideoMode(1920, 1080), "Window", sf::Style::Fullscreen);
-    window.setKeyRepeatEnabled(false);
 
     std::vector<sf::CircleShape> players(8);
     for (int i = 0; i < 8; ++i) {
@@ -129,15 +172,6 @@ void GameClient::Run() {
 
         }
 
-        window.clear();
-        window.draw(background);
-        window.draw(play);
-        for (size_t i = 0; i < players.size(); ++i) {
-            window.draw(players[i]);
-        }
-        window.draw(fps);
-        window.display();
-
         ++frames;
 
         if (fps_timer.getElapsedTime() > sf::seconds(1.0f)) {
@@ -146,6 +180,6 @@ void GameClient::Run() {
             fps_timer.restart();
         }
 
-    }
+    }*/
 
 }

@@ -2,6 +2,16 @@
 #include <cassert>
 
 
+ClientSocket::ClientSocket() {
+
+    socket.setBlocking(false);
+    sf::Socket::Status status = socket.bind(sf::Socket::AnyPort);
+
+    // We'll assume we were able to find a free port
+    assert(status == sf::Socket::Done);
+}
+
+
 ClientSocket::ClientSocket(const Address& server_address)
     : server_address(server_address) {
 
@@ -10,6 +20,13 @@ ClientSocket::ClientSocket(const Address& server_address)
 
     // We'll assume we were able to find a free port
     assert(status == sf::Socket::Done);
+
+}
+
+
+void ClientSocket::SetAddress(const Address& server_address) {
+
+    this->server_address = server_address;
 
 }
 

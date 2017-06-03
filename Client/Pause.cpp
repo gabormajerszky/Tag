@@ -6,4 +6,4 @@ ClientState* Pause::HandlePackets(GameClient* game) { return &game->pause; }
 
 ClientState* Pause::HandleInput(GameClient* game) { return &game->pause; }
 
-void Pause::Render(sf::RenderWindow* window) {}
+void Pause::Render(GameClient* game) {}
